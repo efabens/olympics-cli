@@ -6,8 +6,10 @@ from sys import argv
 from typing import List
 
 
+# http://cdn.espn.com/core/olympics/winter/2018/schedule?xhr=1&render=true&device=desktop&country=us&lang=en&region=us
+# &site=espn&edition-host=espn.com&one-site=true&site-type=full
 def process(filepath: str, args: ArgumentParser) -> List[dict]:
-    with open(filepath + "olympics.json", "r") as afile:
+    with open(filepath + "anoth.json", "r") as afile:
         schedule = load(afile)
 
     disciplines = schedule['disciplines']
