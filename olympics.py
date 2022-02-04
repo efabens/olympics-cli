@@ -6,10 +6,9 @@ from sys import argv
 from typing import List
 
 
-# http://cdn.espn.com/core/olympics/winter/2018/schedule?xhr=1&render=true&device=desktop&country=us&lang=en&region=us
-# &site=espn&edition-host=espn.com&one-site=true&site-type=full
+# http://cdn.espn.com/core/olympics/winter/2022/schedule?xhr=1&render=true&device=desktop&country=us&lang=en&region=us&site=espn&edition-host=espn.com&one-site=true&site-type=full
 def process(filepath: str, args: ArgumentParser) -> List[dict]:
-    with open(filepath + "anoth.json", "r") as afile:
+    with open(filepath + "olympics.json", "r") as afile:
         schedule = load(afile)
 
     disciplines = schedule['disciplines']
@@ -58,7 +57,7 @@ def print_event(event):
 
 if __name__ == '__main__':
     filepath = path.dirname(argv[0])
-    if len(filepath) is not 0:
+    if len(filepath) != 0:
         filepath = filepath + "/"
 
     parser = ArgumentParser(description="prints out olympic events. All data sourced from ESPN via")
