@@ -35,7 +35,7 @@ def process(filepath: str, args: ArgumentParser) -> List[dict]:
 def event_search(args, event_list):
     if args.search is not None:
         search = args.search.lower()
-        event_list = [i for i in event_list if search in (i['name'] + i['description']).lower()]
+        event_list = [i for i in event_list if search in (i['name'] + i['description'] + f'{ "medal" if i["finalMedalComp"] else ""}').lower()]
 
     if args.exclude is not None:
         exclude = args.exclude.lower()
@@ -74,4 +74,5 @@ if __name__ == '__main__':
                         " the exact string ignoring case. If the string is found the event is not displayed. Occurs "
                         "after the search. So the event 'short-track speedskating' with will not show up if 'short' is"
                         " searched for and 'speed' is excluded")
+    parser.add_argument('-m')
     process(filepath, parser.parse_args())
